@@ -1,4 +1,5 @@
-el-table 使用 el-table-column 的 type=”selection”，产生的多选框，点击获取 index 值： 1、在 el-table 绑定 row-class-name，如：:row-class-name="tableRowClassName"
+el-table 使用 el-table-column 的 type=”selection”，产生的多选框，点击获取 index 值：
+1、在 el-table 绑定 row-class-name，如：:row-class-name="tableRowClassName"
 <el-table
       ref="systemTable"
       v-loading="tableLoading"
