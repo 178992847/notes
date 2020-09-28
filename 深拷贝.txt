@@ -1,0 +1,24 @@
+//深拷贝
+let a = {
+  "name" : a,
+  "age" : 18,
+  arr : [],
+  fn : function(){
+    console.log('fn')
+  }
+}
+
+function deepCopy(obj){
+  let newObj = Array.isArray(obj)?[]:{}//判断传过来的对象是对象还是数组
+  for (let key in obj){
+    if(obj.hasOwnProperty(key)){
+       if(typeof(obj[key]) === Object){
+        newObj[key] = deepCopy(obj[key])//如果循环到的属性本身还是对象，进行递归处理
+        }else{
+          newObj[key] = obj[key]
+        }
+    }
+  }
+  return newObj
+}
+let b = deepCopy(a)
