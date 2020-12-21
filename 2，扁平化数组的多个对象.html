@@ -1,0 +1,70 @@
+<!--
+ * @Author: 王伟斌
+ * @Date: 2020-12-21 10:25:32
+ * @LastEditors: 王伟斌
+ * @LastEditTime: 2020-12-21 16:18:25
+ * @FilePath: \undefinedc:\Users\86135\Desktop\2，扁平化数组的多个对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arrTest = [
+      {
+        a: 1,
+        b: {
+          c: 2,
+          d: 3,
+          e: {
+            f: 4,
+            g: {
+              h: 5,
+              sdfdsf: 7879
+            }
+          }
+        },
+        eedf: 89
+      },
+      {
+        i: 6,
+        j: {
+          k: 7,
+          l: 8,
+          m: {
+            n: 9,
+            o: {
+              p: 10
+            }
+          }
+        }
+      }
+    ]
+    function fn(arr, arrList = []) {
+      arr.forEach(el => {
+        function flatten(obj, result = {}) {
+          for (let key in obj) {
+            if (obj[key] instanceof Object) {
+              flatten(obj[key], result)
+            } else {
+              result[key] = obj[key]
+            }
+          }
+          return result
+        }
+        flatten(el)
+        arrList.push(flatten(el))
+      })
+      console.log(arrList)
+    }
+    fn(arrTest)
+  </script>
+</body>
+
+</html>

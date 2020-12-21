@@ -1,0 +1,46 @@
+<!--
+ * @Author: 王伟斌
+ * @Date: 2020-12-21 09:36:06
+ * @LastEditors: 王伟斌
+ * @LastEditTime: 2020-12-21 16:03:05
+ * @FilePath: \undefinedc:\Users\86135\Desktop\1，扁平化对象.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let ob = {
+      a: 1,
+      b: {
+        c: 2,
+        d: 3,
+        e: {
+          f: 4,
+          g: {
+            h: 5
+          }
+        }
+      }
+    };
+    function flatten(obj, result = {}) {
+      for (let key in obj) {
+        if (obj[key] instanceof Object) {
+          flatten(obj[key], result)
+        } else {
+          result[key] = obj[key]
+        }
+      }
+      return result
+    }
+    console.log(flatten(ob))
+  </script>
+</body>
+
+</html>
