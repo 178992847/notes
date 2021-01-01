@@ -18,3 +18,4 @@ el-table 使用 el-table-column 的 type=”selection”，产生的多选框，
  tableRowClassName(row) {
    row.row.index = row.rowIndex; 
 }
+////
