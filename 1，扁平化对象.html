@@ -16,30 +16,31 @@
 
 <body>
   <script>
-    let ob = {
-      a: 1,
-      b: {
-        c: 2,
-        d: 3,
-        e: {
-          f: 4,
-          g: {
-            h: 5
-          }
+  let ob = {
+    a: 1,
+    b: {
+      c: 2,
+      d: 3,
+      e: {
+        f: 4,
+        g: {
+          h: 5
         }
       }
-    };
-    function flatten(obj, result = {}) {
-      for (let key in obj) {
-        if (obj[key] instanceof Object) {
-          flatten(obj[key], result)
-        } else {
-          result[key] = obj[key]
-        }
-      }
-      return result
     }
-    console.log(flatten(ob))
+  };
+
+  function flatten(obj, result = {}) {
+    for (let key in obj) {
+      if (obj[key] instanceof Object) {
+        flatten(obj[key], result)
+      } else {
+        result[key] = obj[key]
+      }
+    }
+    return result
+  }
+  console.log(flatten(ob))
   </script>
 </body>
 

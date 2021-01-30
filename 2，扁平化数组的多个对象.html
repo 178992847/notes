@@ -16,54 +16,55 @@
 
 <body>
   <script>
-    let arrTest = [
-      {
-        a: 1,
-        b: {
-          c: 2,
-          d: 3,
-          e: {
-            f: 4,
-            g: {
-              h: 5,
-              sdfdsf: 7879
-            }
+  let arrTest = [{
+      a: 1,
+      b: {
+        c: 2,
+        d: 3,
+        e: {
+          f: 4,
+          g: {
+            h: 5,
+            ii: 7879
           }
-        },
-        eedf: 89
+        }
       },
-      {
-        i: 6,
-        j: {
-          k: 7,
-          l: 8,
-          m: {
-            n: 9,
-            o: {
-              p: 10
-            }
+      eedf: 89
+    },
+    {
+      i: 6,
+      j: {
+        k: 7,
+        l: 8,
+        m: {
+          n: 9,
+          o: {
+            p: 10
           }
         }
       }
-    ]
-    function fn(arr, arrList = []) {
-      arr.forEach(el => {
-        function flatten(obj, result = {}) {
-          for (let key in obj) {
-            if (obj[key] instanceof Object) {
-              flatten(obj[key], result)
-            } else {
-              result[key] = obj[key]
-            }
-          }
-          return result
-        }
-        flatten(el)
-        arrList.push(flatten(el))
-      })
-      console.log(arrList)
     }
-    fn(arrTest)
+  ]
+  // 单个扁平化的方法
+  function flatten(obj, result = {}) {
+    for (let key in obj) {
+      if (obj[key] instanceof Object) {
+        flatten(obj[key], result)
+      } else {
+        result[key] = obj[key]
+      }
+    }
+    return result
+  }
+  // 数组中循环遍历去扁平化
+  function fn(arr, arrList = []) {
+    arr.forEach(el => {
+      flatten(el)
+      arrList.push(flatten(el))
+    })
+    console.log(arrList)
+  }
+  fn(arrTest)
   </script>
 </body>
 
