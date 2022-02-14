@@ -160,7 +160,3 @@ new Snows({
     num: 300,
     maxSpeed: 15
 })
-new Snows({
-    isRain: false,
-    num: 150
-})
